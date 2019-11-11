@@ -1,7 +1,6 @@
 ﻿using DST.ReportingService.ServiceReference;
 using System;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DST.ReportingService
@@ -15,6 +14,20 @@ namespace DST.ReportingService
 
             // Get camping survey ID
             await DownloadXsdFile("1156000", new DateTime(2019, 08, 01), new DateTime(2019, 08, 31));
+
+            var campingDefinition = new Models.Camping.IndberetningsServiceDataDefinition()
+            {
+                CVR = new Models.Camping.IndberetningsServiceDataDefinitionCVR() { Value = "123456" },
+                EnhedsID = new Models.Camping.IndberetningsServiceDataDefinitionEnhedsID() { Value = "Camping 1"}
+            };
+
+            await SubmitReport(campingDefinition.ToString());
+
+            var hotelDefinition = new Models.Hotels.IndberetningsServiceDataDefinition()
+            {
+                CVR = new Models.Hotels.IndberetningsServiceDataDefinitionCVR() { Value = "RU012345"},
+                EnhedsID = new Models.Hotels.IndberetningsServiceDataDefinitionEnhedsID() { Value = "Hotels 2"}
+            };
         }
 
         /// <summary>
@@ -45,6 +58,16 @@ namespace DST.ReportingService
             Console.WriteLine(xsdMarkup.GetSurveyDefinitionResult);
             // Write the actual content to the XSD file
             writer.Write(xsdMarkup.GetSurveyDefinitionResult);
+        }
+
+        private static async Task SubmitReport(string report)
+        {
+            var client = new ReportingServiceClient();
+
+            // TODO: Verify report is in the correct format. 
+            var response = await client.SubmitReportStringAsync(new SubmitReportStringRequest(report));
+
+            Console.Write("Hopefully we've submitted the report now...");
         }
     }
 }
