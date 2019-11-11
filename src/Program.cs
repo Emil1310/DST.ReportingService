@@ -9,10 +9,10 @@ namespace DST.ReportingService
     {
         public static async Task Main(string[] args)
         {
-            // Get camping survey ID
+            // Get hotel survey ID
             await DownloadXsdFile("1153000", new DateTime(2019, 08, 01), new DateTime(2019, 08, 31));
 
-            // Get hotel survey ID
+            // Get camping survey ID
             await DownloadXsdFile("1156000", new DateTime(2019, 08, 01), new DateTime(2019, 08, 31));
         }
 
