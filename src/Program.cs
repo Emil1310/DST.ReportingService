@@ -21,7 +21,7 @@ namespace DST.ReportingService
 
         public static async Task Main(string[] args)
         {
-            var campingXsdDefinition = await GetSurveyDefinitionResponse("1156000", new DateTime(2019, 08, 01), new DateTime(2019, 08, 31));
+            //var campingXsdDefinition = await GetSurveyDefinitionResponse("1156000", new DateTime(2019, 08, 01), new DateTime(2019, 08, 31));
             var hotelXsdDefinition = await GetSurveyDefinitionResponse("1153000", new DateTime(2019, 08, 01), new DateTime(2019, 08, 31));
             //var client = new ReportingServiceClient();
             //var xsdMarkup = await client.GetSurveyDefinitionAsync(new GetSurveyDefinitionRequest(${surveyId}, {periodBegin.ToShortDateString()}, {periodEnd.ToShortDateString()}, new DateTime(2019, 08, 31)));
@@ -39,14 +39,25 @@ namespace DST.ReportingService
 
             //await SubmitReport(campingDefinition.ToString());
 
-            var hotelDefinition = new Models.Hotels.IndberetningsServiceDataDefinition()
+            var hotelDefinition = new Models.HotelsIndberetningsServiceDataDefinition()
             {
-                CVR = new Models.Hotels.IndberetningsServiceDataDefinitionCVR() { Value = "RU012345" },
-                EnhedsID = new Models.Hotels.IndberetningsServiceDataDefinitionEnhedsID() { Value = "Hotels 2" }
+                TaellingsraekkeID = new Models.HotelsIndberetningsServiceDataDefinitionTaellingsraekkeID() { Value = "1153000" },
+                PeriodeStart = new Models.HotelsIndberetningsServiceDataDefinitionPeriodeStart()
+                {
+                    Value = new DateTime(2019, 08, 01)
+                },
+                PeriodeSlut = new Models.HotelsIndberetningsServiceDataDefinitionPeriodeSlut()
+                {
+                    Value = new DateTime(2019, 08, 31)
+                },
+                CVR = new Models.HotelsIndberetningsServiceDataDefinitionCVR() { Value = "32160603" },
+                EnhedsID = new Models.HotelsIndberetningsServiceDataDefinitionEnhedsID() { Value = "123" },
+                Kontaktinformation = new Models.HotelsIndberetningsServiceDataDefinitionKontaktinformation(),
+                Indberetningsdefinition = new Models.HotelsIndberetningsServiceDataDefinitionIndberetningsdefinition { Danmark = new Models.HotelsIndberetningsServiceDataDefinitionIndberetningsdefinitionDanmark { Value = "123" } }
             };
 
             // Serializing data to XML
-            var serializer = new XmlSerializer(typeof(Models.Hotels.IndberetningsServiceDataDefinition));
+            var serializer = new XmlSerializer(typeof(Models.HotelsIndberetningsServiceDataDefinition));
             var xml = "";
             using (var sww = new StringWriter())
             {
@@ -57,28 +68,23 @@ namespace DST.ReportingService
                 }
             }
             var myXDocument = XDocument.Parse(xml);
-
-
-            // VALIDATE THAT myXDocument IS MATCHING THE DEFINITION SCHEMA FROM HOTELXSDDEFINITION... 
-            //string data = 
-            //XmlSchemaSet schemas = new XmlSchemaSet();
-            //schemas.Add("", XmlReader.Create(new StringReader(hotelXsdDefinition)));
-            //XDocument docHotels = new XDocument(new XElement("Root",
-            //    new XElement("Child1", "c1"),
-            //    new XElement("Child2", "c2")
-            //)
-            //);
-            //Console.WriteLine("Validating doc1");
-            //bool errors = false;
-            //docHotels.Validate(schemas, (o, e) =>
-            //{
-            //    Console.WriteLine("{0}", e.Message);
-            //    errors = true;
-            //}, true);
-            //Console.WriteLine("doc1 {0}", errors ? "did not validate" : "validated");
-            //Console.WriteLine();
-            //Console.WriteLine("Contents of doc1:");
-            //Console.WriteLine(docHotels);
+          
+            //VALIDATE THAT myXDocument IS MATCHING THE DEFINITION SCHEMA FROM HOTELXSDDEFINITION... 
+            
+            XmlSchemaSet schemas = new XmlSchemaSet();
+            schemas.Add("", XmlReader.Create(new StringReader(hotelXsdDefinition)));
+          
+        
+            Console.WriteLine("Validating doc1");
+            bool errors = false;
+            myXDocument.Validate(schemas, (o, e) =>
+            {
+                Console.WriteLine("{0}", e.Message);
+                errors = true;
+            }, true);
+            Console.WriteLine("doc1 {0}", errors ? "did not validate" : "validated");
+            
+            
         }
         private static async Task<string> GetSurveyDefinitionResponse(string surveyId, DateTime periodBegin, DateTime periodEnd)
         {
