@@ -19,15 +19,15 @@ namespace DST.ReportingService
         //private static XNamespace ResultNamespace = "http://www.w3.org/2001/XMLSchema";
         private static XNamespace ResponseNamespace = "http://tempuri.org/";
         private static XNamespace EmptyNamespace = "";
-
         public static async Task Main(string[] args)
         {
             var campingXsdDefinition = await GetSurveyDefinitionResponse("1156000", new DateTime(2019, 08, 01), new DateTime(2019, 08, 31));
             var hotelXsdDefinition = await GetSurveyDefinitionResponse("1153000", new DateTime(2019, 08, 01), new DateTime(2019, 08, 31));
+            
             //var client = new ReportingServiceClient();
             //var xsdMarkup = await client.GetSurveyDefinitionAsync(new GetSurveyDefinitionRequest(${surveyId}, {periodBegin.ToShortDateString()}, {periodEnd.ToShortDateString()}, new DateTime(2019, 08, 31)));
             //Get hotel surveyID;
-            await DownloadXsdFile("1153000", new DateTime(2019, 08, 01), new DateTime(2019, 08, 31)); //, new DateTime(2019, 08, 01), new DateTime(2019, 08, 31));
+            //await DownloadXsdFile("1153000", new DateTime(2019, 08, 01), new DateTime(2019, 08, 31)); //, new DateTime(2019, 08, 01), new DateTime(2019, 08, 31));
 
             //Get camping surveyID;
             //await DownloadXsdFile("1156000"); //, new DateTime(2019, 08, 01), new DateTime(2019, 08, 31));
@@ -67,295 +67,295 @@ namespace DST.ReportingService
                 Indberetningsdefinition = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinition {
                     Ialt = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionIalt()
                     {
-                        Value = "" //optional, "Antal gæstenætter ialt"
+                        Value = "0" //optional, "Antal gæstenætter ialt"
                     },
                     IndividForretning = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionIndividForretning()
                     {
-                        Value = "" //optional, "Antal gæstenætter foretaget af individuelle forretningsrejsende"
+                        Value = "0" //optional, "Antal gæstenætter foretaget af individuelle forretningsrejsende"
                     },
                     IndividFerie = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionIndividFerie()
                     {
-                        Value = "" //optional, "Antal gæstenætter foretaget af individuelle ferierejsende"
+                        Value = "0" //optional, "Antal gæstenætter foretaget af individuelle ferierejsende"
                     },
                     GruppeForretning = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionGruppeForretning()
                     {
-                        Value = "" //optional, "Antal gæstenætter foretaget af forretningsrejsende, som rejste som en gruppe"
+                        Value = "0" //optional, "Antal gæstenætter foretaget af forretningsrejsende, som rejste som en gruppe"
                     },
                     GruppeFerie = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionGruppeFerie()
                     {
-                        Value = "" //optional, "Antal gæstenætter foretaget af ferierejsende, som rejste som en gruppe"
+                        Value = "0" //optional, "Antal gæstenætter foretaget af ferierejsende, som rejste som en gruppe"
                     },
                     Oevrige = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionOevrige()
                     {
-                        Value = "" //optional, "Antal gæstenætter foretaget af øvrige rejsende - KUN værelser til airline crews og andre gratis værelser (complimentary)"
+                        Value = "0" //optional, "Antal gæstenætter foretaget af øvrige rejsende - KUN værelser til airline crews og andre gratis værelser (complimentary)"
                     },
                     UdlVaer = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionUdlVaer()
                     {
-                        Value = "" //optional, "Antal udlejede værelser i måneden"
+                        Value = "0" //optional, "Antal udlejede værelser i måneden"
                     },
                     AntSenge = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionAntSenge()
                     {
-                        Value = "" //optional, "Antal sengepladser i måneden, uden ekstraopredninger (kapacitet)"
+                        Value = "0" //optional, "Antal sengepladser i måneden, uden ekstraopredninger (kapacitet)"
                     },
                     AntVaer = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionAntVaer()
                     {
-                        Value = "" //optional, "Antal værelser i måneden (kapacitet)"
+                        Value = "0" //optional, "Antal værelser i måneden (kapacitet)"
                     },
                     AabnIAar = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionAabnIAar()
                     {
-                        Value = "" //optional, "Dato for sæsonåbning i året"
+                        Value = "0" //optional, "Dato for sæsonåbning i året"
                     },
                     LukIAar = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionLukIAar()
                     {
-                        Value = "" //optional, "Dato for sæsonlukning i året"
+                        Value = "0" //optional, "Dato for sæsonlukning i året"
                     },
                     Virk_bemaerkning = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionVirk_bemaerkning()
                     {
-                        Value = "" //optional, "Bemærkning"
+                        Value = "0" //optional, "Bemærkning"
                     },
                     Kontaktpers_fornavn = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionKontaktpers_fornavn()
                     {
-                        Value = "" //optional, "Kontaktpersonens fornavn"
+                        Value = "0" //optional, "Kontaktpersonens fornavn"
                     },
                     Kontaktpers_efternavn = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionKontaktpers_efternavn()
                     {
-                        Value = "" //optional, "Kontaktpersonens efternavn"
+                        Value = "0" //optional, "Kontaktpersonens efternavn"
                     },
                     Kontaktpers_telefon = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionKontaktpers_telefon()
                     {
-                        Value = "" //optional, "Kontaktpersonens telefon"
+                        Value = "0" //optional, "Kontaktpersonens telefon"
                     },
                     Kontaktpers_epost = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionKontaktpers_epost()
                     {
-                        Value = "" //optional, "Kontaktpersonens e-mail"
+                        Value = "0" //optional, "Kontaktpersonens e-mail"
                     },
                     AntGaesterIalt = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionAntGaesterIalt()
                     {
-                        Value = "" //optional, "Antal gæster i alt (udenlandske og danske lagt sammen)"
+                        Value = "0" //optional, "Antal gæster i alt (udenlandske og danske lagt sammen)"
                     },
                     AntGaesterDK = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionAntGaesterDK
                     {
-                        Value = "" //optional, "Antal danske gæster i alt"
+                        Value = "0" //optional, "Antal danske gæster i alt"
                     },
                     AfrikaA = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionAfrikaA()
                     {
-                        Value = "" //optional, "Antal gæstenætter foretaget af gæster bosiddende i andre afrikanske lande "
+                        Value = "0" //optional, "Antal gæstenætter foretaget af gæster bosiddende i andre afrikanske lande "
                     },
                     AmerikaA = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionAmerikaA()
                     {
-                        Value = "" //optional, "Antal gæstenætter foretaget af gæster bosiddende i andre mellem- og sydamerikanske lande (såsom Argentina, caribiske øer osv.) "
+                        Value = "0" //optional, "Antal gæstenætter foretaget af gæster bosiddende i andre mellem- og sydamerikanske lande (såsom Argentina, caribiske øer osv.) "
                     },
                     AsienA = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionAsienA()
                     {
-                        Value = "" //optional, "Antal gæstenætter foretaget af gæster bosiddende i andre asiatiske lande (såsom Vietnam, Indonesien, Malaysia osv.)"
+                        Value = "0" //optional, "Antal gæstenætter foretaget af gæster bosiddende i andre asiatiske lande (såsom Vietnam, Indonesien, Malaysia osv.)"
                     },
                     EuropaA = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionEuropaA()
                     {
-                        Value = "" //optional, "Antal gæstenætter foretaget af gæster bosiddende i andre europæiske lande (såsom Hviderusland)"
+                        Value = "0" //optional, "Antal gæstenætter foretaget af gæster bosiddende i andre europæiske lande (såsom Hviderusland)"
                     },
                     OceanienA = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionOceanienA()
                     {
-                        Value = "" //optional, "Antal gæstenætter foretaget af gæster bosiddende i andre oceaniske lande (såsom New Zealand, Tonga, Cook-øerne)"
+                        Value = "0" //optional, "Antal gæstenætter foretaget af gæster bosiddende i andre oceaniske lande (såsom New Zealand, Tonga, Cook-øerne)"
                     },
                     Australien = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionAustralien()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Belgien = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionBelgien()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Bosnien_Hercegovina = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionBosnien_Hercegovina()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Brasilien = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionBrasilien()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Bulgarien = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionBulgarien()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Canada = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionCanada()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Cypern = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionCypern()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Danmark = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionDanmark()
                     {
-                        Value = "123"
+                        Value = "0"
                     },
                     Estland = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionEstland()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Faeroerne = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionFaeroerne()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Finland = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionFinland()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Frankrig = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionFrankrig()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     FR_Kina = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionFR_Kina()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     FYR_Makedonien = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionFYR_Makedonien()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Graekenl = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionGraekenl()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Groenland = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionGroenland()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Holland = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionHolland()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Indien = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionIndien()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Irland = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionIrland()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Island = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionIsland()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Italien = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionItalien()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Japan = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionJapan()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Kroatien = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionKroatien()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Letland = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionLetland()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Litauen = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionLitauen()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Luxemborg = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionLuxemborg()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Malta = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionMalta()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Montenegro = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionMontenegro()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Norge = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionNorge()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Oestrig = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionOestrig()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Polen = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionPolen()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Portugal = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionPortugal()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Rumaenien = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionRumaenien()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Rusland = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionRusland()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Schweiz = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionSchweiz()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Serbien = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionSerbien()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Slovakiet = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionSlovakiet()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Slovenien = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionSlovenien()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Spanien = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionSpanien()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Sverige = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionSverige()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     SydAfrika = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionSydAfrika()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     SydKorea = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionSydKorea()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Thailand = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionThailand()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Tjekkiet = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionTjekkiet()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Tyrkiet = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionTyrkiet()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Tyskland = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionTyskland()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     UK = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionUK()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Ukraine = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionUkraine()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     Ungarn = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionUngarn()
                     {
-                        Value = ""
+                        Value = "0"
                     },
                     USA = new Models.Hotels.IndberetningsServiceDataDefinitionIndberetningsdefinitionUSA()
                     {
-                        Value = ""
+                        Value = "0"
                     }
                 }
             };
@@ -380,75 +380,105 @@ namespace DST.ReportingService
                 Indberetningsdefinition = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinition { 
                     IaltIkkeFaste = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionIaltIkkeFaste()
                     {
-                        Value = "" //optional, "Ikke-fastliggende gæstenætter i alt"
+                        Value = "0" //optional, "Ikke-fastliggende gæstenætter i alt"
                     },
                     IkkeFasteLandeAntal = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionIkkeFasteLandeAntal[]
                     {
                         new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionIkkeFasteLandeAntal
                         {
-                        IFLandekode = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionIkkeFasteLandeAntalIFLandekode(), //optional, "Landekode - Angives jævnfør ISO 3166. Vi benytter den kode, som består af tre bogstaver, fx SWE for Sverige."
-                        IFOvernatningerFraLand = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionIkkeFasteLandeAntalIFOvernatningerFraLand() //optional, "Antal ikke-fastliggende gæstenætter fra specificeret land " + "Gruppe af landekoder - bruges til at fordele antal ikke-fastliggende gæstenætter på specifikke lande "
+                        IFLandekode = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionIkkeFasteLandeAntalIFLandekode() 
+                        {
+                            Value = "SWE" // optional, "Landekode - Angives jævnfør ISO 3166. Vi benytter den kode, som består af tre bogstaver, fx SWE for Sverige."
+                        }, 
+                        IFOvernatningerFraLand = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionIkkeFasteLandeAntalIFOvernatningerFraLand()
+                        {
+                            Value = "0" //optional, "Antal ikke-fastliggende gæstenætter fra specificeret land " + "Gruppe af landekoder - bruges til at fordele antal ikke-fastliggende gæstenætter på specifikke lande "
+                        }
                         },
                         new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionIkkeFasteLandeAntal
                         {
-                        IFLandekode = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionIkkeFasteLandeAntalIFLandekode(), //optional, "Landekode - Angives jævnfør ISO 3166. Vi benytter den kode, som består af tre bogstaver, fx SWE for Sverige."
-                        IFOvernatningerFraLand = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionIkkeFasteLandeAntalIFOvernatningerFraLand() //optional, "Antal ikke-fastliggende gæstenætter fra specificeret land " + "Gruppe af landekoder - bruges til at fordele antal ikke-fastliggende gæstenætter på specifikke lande "
+                        IFLandekode = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionIkkeFasteLandeAntalIFLandekode()
+                        {
+                            Value = "SWE" //optional, "Landekode - Angives jævnfør ISO 3166. Vi benytter den kode, som består af tre bogstaver, fx SWE for Sverige."
+                        }, 
+                        IFOvernatningerFraLand = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionIkkeFasteLandeAntalIFOvernatningerFraLand()
+                        {
+                            Value = "0" //optional, "Antal ikke-fastliggende gæstenætter fra specificeret land " + "Gruppe af landekoder - bruges til at fordele antal ikke-fastliggende gæstenætter på specifikke lande "
+                        }
                         }
                     },
                     IaltFaste = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionIaltFaste()
                     {
-                        Value = "" //optional, "Fast udlejede standpladser i alt" name="beskrivelse"
+                        Value = "0" //optional, "Fast udlejede standpladser i alt" name="beskrivelse"
                     },
                     IaltO = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionIaltO()
                     {
-                        Value = "" //optional, "Fast udlejede standpladser i alt omregnet til antal gæstenætter"
+                        Value = "0" //optional, "Fast udlejede standpladser i alt omregnet til antal gæstenætter"
                     },
                     FasteLandeAntal = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionFasteLandeAntal[] 
                     {
                         new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionFasteLandeAntal
                         {
-                            Landekode = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionFasteLandeAntalLandekode(), //optional, "Landekode - Angives jævnfør ISO 3166. Vi benytter den kode, som består af tre bogstaver, fx SWE for Sverige."
-                            AntalUdlejedeFasteFraLand = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionFasteLandeAntalAntalUdlejedeFasteFraLand(), //optional, "Antal fast udlejede pladser fra specificeret land" name="beskrivelse"
-                            AntalOvernatningerFraLand = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionFasteLandeAntalAntalOvernatningerFraLand() //optional, "Antal gæstenætter på fast udlejede standpladser fra specificeret land " + "Gruppe af landekoder - bruges til at fordele antal fastliggende gæstenætter på specifikke lande "
+                            Landekode = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionFasteLandeAntalLandekode()
+                            {
+                                Value = "0" //optional, "Landekode - Angives jævnfør ISO 3166. Vi benytter den kode, som består af tre bogstaver, fx SWE for Sverige."
+                            },
+                            AntalUdlejedeFasteFraLand = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionFasteLandeAntalAntalUdlejedeFasteFraLand()
+                            {
+                                Value = "0" //optional, "Antal fast udlejede pladser fra specificeret land" 
+                            }, 
+                            AntalOvernatningerFraLand = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionFasteLandeAntalAntalOvernatningerFraLand()
+                            {
+                                Value = "0" //optional, "Antal gæstenætter på fast udlejede standpladser fra specificeret land " + "Gruppe af landekoder - bruges til at fordele antal fastliggende gæstenætter på specifikke lande "
+                            }
                         },
                         new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionFasteLandeAntal
                         {
-                            Landekode = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionFasteLandeAntalLandekode(), //optional, "Landekode - Angives jævnfør ISO 3166. Vi benytter den kode, som består af tre bogstaver, fx SWE for Sverige."
-                            AntalUdlejedeFasteFraLand = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionFasteLandeAntalAntalUdlejedeFasteFraLand(), //optional, "Antal fast udlejede pladser fra specificeret land" name="beskrivelse"
-                            AntalOvernatningerFraLand = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionFasteLandeAntalAntalOvernatningerFraLand() //optional, "Antal gæstenætter på fast udlejede standpladser fra specificeret land " + "Gruppe af landekoder - bruges til at fordele antal fastliggende gæstenætter på specifikke lande "
+                            Landekode = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionFasteLandeAntalLandekode()
+                            {
+                                Value = "0" //optional, "Landekode - Angives jævnfør ISO 3166. Vi benytter den kode, som består af tre bogstaver, fx SWE for Sverige."
+                            },
+                            AntalUdlejedeFasteFraLand = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionFasteLandeAntalAntalUdlejedeFasteFraLand()
+                            {
+                                Value = "0" //optional, "Antal fast udlejede pladser fra specificeret land" 
+                            }, 
+                            AntalOvernatningerFraLand = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionFasteLandeAntalAntalOvernatningerFraLand()
+                            {
+                                Value = "0" //optional, "Antal gæstenætter på fast udlejede standpladser fra specificeret land " + "Gruppe af landekoder - bruges til at fordele antal fastliggende gæstenætter på specifikke lande "
+                            }
                         }
                     },
                     IAltEnh = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionIAltEnh()
                     {
-                        Value = "" //optional, "Kapacitet - Antal campingenheder"
+                        Value = "0" //optional, "Kapacitet - Antal campingenheder"
                     },
                     AabnIAar = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionAabnIAar()
                     {
-                        Value = "" // optional, "Felt til angivelse af åbningsperiode - Åbner"
+                        Value = "0" // optional, "Felt til angivelse af åbningsperiode - Åbner"
                     },
                     LukIAar = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionLukIAar()
                     {
-                        Value = "" // optional, "Felt til angivelse af åbningsperiode - Lukker"
+                        Value = "0" // optional, "Felt til angivelse af åbningsperiode - Lukker"
                     },
                     Kontaktpers_telefon = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionKontaktpers_telefon()
                     {
-                        Value = "" //optional, "Kontaktpersonens telefonnummer"
+                        Value = "0" //optional, "Kontaktpersonens telefonnummer"
                     },
                     Kontaktpers_epost = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionKontaktpers_epost()
                     {
-                        Value = "" //optional, "Kontaktpersonens e-mail"
+                        Value = "0" //optional, "Kontaktpersonens e-mail"
                     },
                     AntGaesterIalt = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionAntGaesterIalt()
                     {
-                        Value = "" //optional, "Antal gæster i alt (udenlandske og danske lagt sammen)"
+                        Value = "0" //optional, "Antal gæster i alt (udenlandske og danske lagt sammen)"
                     },
                     AntGaesterDK = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionAntGaesterDK
                     {
-                        Value = "123"
+                        Value = "0" //optional, "Antal danske gæster i alt"
                     },
                     kontaktpers_navn = new Models.Camping.IndberetningsServiceDataDefinitionIndberetningsdefinitionKontaktpers_navn()
                     {
-                        Value = "" //optional, "Kontaktpersonens navn" name="beskrivelse"
+                        Value = "0" //optional, "Kontaktpersonens navn" name="beskrivelse"
                     }
                 }
             };
@@ -464,6 +494,7 @@ namespace DST.ReportingService
                     xmlHotels = sww.ToString(); // Your XML
                 }
             }
+            await SubmitReport(xmlHotels);
             var myXDocumentHotels = XDocument.Parse(xmlHotels);
 
             var serializerCamping = new XmlSerializer(typeof(Models.Camping.IndberetningsServiceDataDefinition));
@@ -594,12 +625,50 @@ namespace DST.ReportingService
 
         private static async Task SubmitReport(string report)
         {
-            var client = new ReportingServiceClient();
+            var sb = new StringBuilder();
+            var settings = new XmlWriterSettings();
+            settings.OmitXmlDeclaration = true;
+            using (var writer = XmlWriter.Create(sb, settings))
+            {
+                var serializer = new XmlSerializer(typeof(Models.Envelope<Models.SubmitReportStringRequestbody>));
 
-            // TODO: Verify report is in the correct format. 
-            var response = await client.SubmitReportStringAsync(new SubmitReportStringRequest(report));
+                serializer.Serialize(writer, new Models.Envelope<Models.SubmitReportStringRequestbody>
+                {
+                    Body = new Models.SubmitReportStringRequestbody
+                    {
+                        SubmitReportStringRequest = new Models.SubmitReportStringRequest
+                        {
+                            Report = report
+                        }
+                    }
+                });
+            }
+            var stringContent = sb.ToString();
 
-            Console.Write("Hopefully we've submitted the report now...");
+
+            var client = new HttpClient();
+            var request = new HttpRequestMessage()
+            {
+                Content = new StringContent(stringContent,
+                    Encoding.UTF8, "text/xml"),
+                RequestUri = new Uri("https://srvtwebsvc1.dst.dk/ReportingService/ReportingService.svc"),
+                Method = HttpMethod.Post
+            };
+            request.Headers.Add("SOAPAction", "http://tempuri.org/IReportingService/GetSurveyDefinition");
+            var result = await client.SendAsync(request);
+
+
+
+            //var serializer = new XmlSerializer(typeof(Models.Envelope<Models.SubmitReportStringResponse>));
+            //Models.Envelope<Models.SubmitReportStringResponse> envelope;
+            //using (XmlReader reader = xDocument.CreateReader())
+            //{
+            //    envelope = (Models.Envelope<Models.SubmitReportStringResponse>)serializer2.Deserialize(reader);
+            //}
+
+            //return envelope.Body.SubmitReportStringResponseResult.SubmitReportStringResult;
+
+
         }
     }
 }
