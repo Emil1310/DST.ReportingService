@@ -563,8 +563,8 @@ namespace DST.ReportingService
             }
             var stringContent = sb.ToString();
 
-            // "<?xml version=\"1.0\"                                                               <BodyTest xmlns=\"http://tempuri.org/\"><GetSurveyDefinitionRequest><SurveyId>1156000</SurveyId><PeriodBegin>2019-08-01T00:00:00</PeriodBegin><PeriodEnd>2019-08-31T00:00:00</PeriodEnd></GetSurveyDefinitionRequest></BodyTest></Envelope>"
-            //var Content = $"<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body><GetSurveyDefinition xmlns=\"http://tempuri.org/\"><surveyId>{surveyId}</surveyId><periodBegin>{periodBegin.ToString("yyyy-MM-ddTHH:mm:ss")}</periodBegin><periodEnd>{periodEnd.ToString("yyyy-MM-ddTHH:mm:ss")}</periodEnd></GetSurveyDefinition></s:Body></s:Envelope>";
+            // "<?xml version=\"1.0\"                                                             <Body><GetSurveyDefinition xmlns=\"http://tempuri.org/\"><surveyId>1156000</surveyId><periodBegin>2019-08-01T00:00:00</periodBegin><periodEnd>2019-08-31T00:00:00</periodEnd></GetSurveyDefinition></BodyTest></Envelope>"
+            //var Content = $"<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body><GetSurveyDefinition xmlns=\"http://tempuri.org/\"><surveyId>{surveyId}</surveyId><periodBegin>{periodBegin.ToString("yyyy-MM-ddTHH:mm:ss")}</periodBegin><periodEnd>{periodEnd.ToString("yyyy-MM-ddTHH:mm:ss")}</periodEnd></GetSurveyDefinition></s:Body></s:Envelope>"
 
             var client = new HttpClient();
             var request = new HttpRequestMessage()
