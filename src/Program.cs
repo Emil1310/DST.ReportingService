@@ -656,19 +656,6 @@ namespace DST.ReportingService
             };
             request.Headers.Add("SOAPAction", "http://tempuri.org/IReportingService/GetSurveyDefinition");
             var result = await client.SendAsync(request);
-
-
-
-            //var serializer = new XmlSerializer(typeof(Models.Envelope<Models.SubmitReportStringResponse>));
-            //Models.Envelope<Models.SubmitReportStringResponse> envelope;
-            //using (XmlReader reader = xDocument.CreateReader())
-            //{
-            //    envelope = (Models.Envelope<Models.SubmitReportStringResponse>)serializer2.Deserialize(reader);
-            //}
-
-            //return envelope.Body.SubmitReportStringResponseResult.SubmitReportStringResult;
-
-
         }
     }
 }
